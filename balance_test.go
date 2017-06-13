@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-const Nodes = 1024
+const Nodes = 16
 
 var (
 	filePath string = "./words.txt"
@@ -46,13 +46,13 @@ func TestBalance(t *testing.T) {
 		var total float64
 		var counts []float64
 		var empty int
-		for k := range nodes {
-			if k == 0 {
+		for _, v := range nodes {
+			if v == 0 {
 				empty++
 			}
-			v := float64(nodes[k])
-			total += v
-			counts = append(counts, v)
+			vf := float64(v)
+			total += vf
+			counts = append(counts, vf)
 		}
 
 		sort.Float64s(counts)
