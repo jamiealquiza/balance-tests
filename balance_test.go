@@ -58,7 +58,7 @@ func TestBalance(t *testing.T) {
 		imbp := rng / total * 100
 		imbr := counts[len(counts)-1] / counts[0]
 
-		fmt.Printf("[%s]\n", m.name)
+		fmt.Printf("\n[%s]\n", m.name)
 		fmt.Printf("%20s - %d\n", "Empty nodes", empty)
 		fmt.Printf("%20s - portion of keys: %.2f%% / ratio: %.2fx\n",
 			"Greatest imbalance", imbp, imbr)
