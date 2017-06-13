@@ -8,13 +8,15 @@ import (
 	"testing"
 )
 
+const Nodes = 1024
+
 var (
 	filePath string = "./words.txt"
 )
 
 type method struct {
 	name string
-	f    func(string, int) int
+	f    func(string) int
 }
 
 var methods []method
@@ -33,7 +35,7 @@ func TestBalance(t *testing.T) {
 
 		scanner := bufio.NewScanner(file)
 		for scanner.Scan() {
-			nodes[m.f(scanner.Text(), 1024)]++
+			nodes[m.f(scanner.Text())]++
 		}
 
 		if err := scanner.Err(); err != nil {
