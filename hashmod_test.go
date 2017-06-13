@@ -48,11 +48,12 @@ func TestDistribution(t *testing.T) {
 	imbp := rng / total * 100
 	imbr := counts[len(counts)-1] / counts[0]
 
-	fmt.Printf("[Empty nodes] %d\n", empty)
-	fmt.Printf("[Greatest imbalance] portion of keys: %.2f%% / ratio: %.2fx\n",
-		imbp, imbr)
-	fmt.Printf("[Range] %.0f / highest value: %.0f / lowest value: %.0f\n",
-		rng, counts[len(counts)-1], counts[0])
+	fmt.Println("[FNV-1 mod]")
+	fmt.Printf("%20s - %d\n", "Empty nodes", empty)
+	fmt.Printf("%20s - portion of keys: %.2f%% / ratio: %.2fx\n",
+		"Greatest imbalance", imbp, imbr)
+	fmt.Printf("%20s - %.0f / highest value: %.0f / lowest value: %.0f\n",
+		"Range", rng, counts[len(counts)-1], counts[0])
 
 }
 
