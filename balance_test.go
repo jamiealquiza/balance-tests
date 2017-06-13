@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-const Nodes = 16
+const Nodes = 512
 
 var (
 	filePath string = "./words.txt"
