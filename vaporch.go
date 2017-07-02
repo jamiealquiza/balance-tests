@@ -16,7 +16,7 @@ func init() {
 	}
 
 	ch, _ = vaporch.New(&vaporch.Config{
-		VNodes: 3,
+		VNodes: 1,
 		Nodes:  nodes,
 	})
 
