@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-const Nodes = 512
+const Nodes = 8
 
 var (
 	filePath string = "./words.txt"
@@ -66,5 +66,12 @@ func TestBalance(t *testing.T) {
 			"Greatest imbalance", imbp, imbr)
 		fmt.Printf("%20s - %.0f / highest value: %.0f / lowest value: %.0f\n",
 			"Range", rng, counts[len(counts)-1], counts[0])
+
+		if len(nodes) < 16 {
+			fmt.Println()
+			for n := 0; n < len(nodes); n++ {
+				fmt.Printf("node-%d: %d\n", n, nodes[n])
+			}
+		}
 	}
 }
