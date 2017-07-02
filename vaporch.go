@@ -6,7 +6,7 @@ import (
 	"github.com/jamiealquiza/vaporch"
 )
 
-var ch *vaporch.Ring
+var vch *vaporch.Ring
 
 func init() {
 	nodes := []string{}
@@ -15,15 +15,15 @@ func init() {
 		nodes = append(nodes, strconv.Itoa(i))
 	}
 
-	ch, _ = vaporch.New(&vaporch.Config{
+	vch, _ = vaporch.New(&vaporch.Config{
 		Nodes: nodes,
 	})
 
 	methods = append(methods, method{
-		name: "vaporCH", f: vch})
+		name: "vaporCH", f: vchGet})
 }
 
-func vch(k string) int {
-	i, _ := strconv.Atoi(ch.Get(k))
+func vchGet(k string) int {
+	i, _ := strconv.Atoi(vch.Get(k))
 	return i
 }
