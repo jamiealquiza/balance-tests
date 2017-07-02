@@ -16,8 +16,7 @@ func init() {
 	}
 
 	ch, _ = vaporch.New(&vaporch.Config{
-		VNodes: 1,
-		Nodes:  nodes,
+		Nodes: nodes,
 	})
 
 	methods = append(methods, method{
