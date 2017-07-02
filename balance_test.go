@@ -12,11 +12,22 @@ const Nodes = 8
 
 var (
 	filePath string = "./words.txt"
+	nodeList        = make([]string, Nodes)
 )
+
+func init() {
+	for n := range nodeList {
+		nodeList[n] = fmt.Sprintf("node-%d", n)
+	}
+
+	chInit()
+	fnv1modInit()
+	vaporchInit()
+}
 
 type method struct {
 	name string
-	f    func(string) int
+	f    func(string) string
 }
 
 var methods []method
@@ -25,7 +36,7 @@ var methods []method
 
 func TestBalance(t *testing.T) {
 	for _, m := range methods {
-		nodes := map[int]uint64{}
+		nodes := map[string]uint64{}
 
 		file, err := os.Open(filePath)
 		if err != nil {
@@ -69,8 +80,8 @@ func TestBalance(t *testing.T) {
 
 		if len(nodes) < 16 {
 			fmt.Println()
-			for n := 0; n < len(nodes); n++ {
-				fmt.Printf("node-%d: %d\n", n, nodes[n])
+			for _, n := range nodeList {
+				fmt.Printf("%s: %d\n", n, nodes[n])
 			}
 		}
 	}

@@ -1,26 +1,23 @@
 package balancetests
 
 import (
-	"strconv"
-
 	"github.com/jamiealquiza/ch"
 )
 
 var ring *ch.Ring
 
-func init() {
-	ring, _ = ch.New(&ch.Config{VNodes: 1})
+func chInit() {
+	ring, _ = ch.New(&ch.Config{VNodes: 3})
 
-	for i := 0; i < Nodes; i++ {
-		ring.AddNode(strconv.Itoa(i))
+	for _, n := range nodeList {
+		ring.AddNode(n)
 	}
 
 	methods = append(methods, method{
-		name: "ch", f: ringGet})
+		name: "consistent-hashing", f: ringGet})
 }
 
-func ringGet(k string) int {
+func ringGet(k string) string {
 	n, _ := ring.GetNode(k)
-	i, _ := strconv.Atoi(n)
-	return i
+	return n
 }
