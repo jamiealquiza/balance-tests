@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-const Nodes = 8
+const Nodes = 4
 
 var (
 	filePath string = "./words.txt"
@@ -57,6 +57,7 @@ func TestBalance(t *testing.T) {
 		var total float64
 		var counts []float64
 		var empty int
+
 		for _, v := range nodes {
 			if v == 0 {
 				empty++
